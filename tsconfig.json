@@ -17,6 +17,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@env/*": ["./src/environments/*"]
+    },
     "sourceMap": true,
     "target": "es2015",
     "typeRoots": ["node_modules/@types"]
