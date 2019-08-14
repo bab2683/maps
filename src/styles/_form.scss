@@ -1,0 +1,10 @@
+input {
+  &[type="email"],
+  &[type="password"],
+  &[type="text"] {
+    background: none;
+    border: 0;
+    color: $black;
+    padding: 1rem;
+  }
+}

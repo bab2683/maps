@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HeaderComponent, InputComponent, LoginComponent } from '@cmp/index';
 import { environment } from '@env/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,8 +21,9 @@ const {
 } = environment;
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, HeaderComponent, InputComponent],
   imports: [
+    AngularFireAuthModule,
     AngularFireModule.initializeApp({
       apiKey: FIREBASE_MAPS_API_KEY,
       authDomain: FIREBASE_MAPS_AUTH_DOMAIN,

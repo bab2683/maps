@@ -18,7 +18,9 @@
     "noUnusedParameters": true,
     "outDir": "./dist/out-tsc",
     "paths": {
-      "@env/*": ["./src/environments/*"]
+      "@cmp/*": ["./src/app/components/*"],
+      "@env/*": ["./src/environments/*"],
+      "@mod/*": ["./src/models/*"]
     },
     "sourceMap": true,
     "target": "es2015",
