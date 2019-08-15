@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ComposerComponent, FieldComponent, InputComponent } from './components';
+import { ComposerComponent, FieldComponent, RowComponent } from './components';
 
 @NgModule({
-  declarations: [ComposerComponent, InputComponent, FieldComponent],
+  declarations: [ComposerComponent, FieldComponent, RowComponent],
   exports: [ComposerComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule]
 })

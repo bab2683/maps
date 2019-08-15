@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { FormField } from '../../interfaces';
 
 @Component({
   selector: 'form-field',
   templateUrl: './field.component.html',
   styleUrls: ['./field.component.scss']
 })
-export class FieldComponent implements OnInit {
-  constructor() {}
-
-  public ngOnInit(): void {}
+export class FieldComponent {
+  @Input() data: FormField;
 }

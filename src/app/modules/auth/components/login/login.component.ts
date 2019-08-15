@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmailValidator, Validators } from '@angular/forms';
 
-import { FormComposer } from '@mod/form';
+import { ComposerComponent, FormRow } from '@mod/form';
 
 @Component({
   selector: 'auth-login',
@@ -9,32 +9,37 @@ import { FormComposer } from '@mod/form';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  form: FormComposer;
+  @ViewChild('form', { static: false }) public form: ComposerComponent;
+  rows: FormRow[];
 
   constructor() {
-    this.form = {
-      rows: [
-        {
-          b: 1,
-          fields: [
-            {
-              name: 'email',
-              placeholder: 'Your email',
-              type: 'email',
-              validators: [new EmailValidator(), Validators.required]
-            },
-            {
-              name: 'password',
-              placeholder: 'Your password',
-              type: 'password',
-              validators: [Validators.required]
-            }
-          ]
-        }
-      ],
-      submitText: 'Continue'
-    };
+    this.rows = [
+      {
+        fields: [
+          {
+            name: 'email',
+            placeholder: 'Your email',
+            type: 'email',
+            validators: [new EmailValidator(), Validators.required]
+          },
+          {
+            name: 'password',
+            placeholder: 'Your password',
+            type: 'password',
+            validators: [Validators.required]
+          }
+        ]
+        // sizes: {
+        //   s: 2
+        // }
+      }
+    ];
   }
 
   public ngOnInit(): void {}
+
+  public login(): void {
+    console.log('loggin in');
+    this.form.submit();
+  }
 }

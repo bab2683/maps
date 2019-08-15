@@ -26,6 +26,9 @@
             "polyfills": "src/polyfills.ts",
             "scripts": [],
             "styles": ["src/styles/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
             "tsConfig": "tsconfig.app.json"
           },
           "configurations": {

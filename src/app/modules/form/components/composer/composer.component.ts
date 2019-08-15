@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, /*FormControl*/ FormGroup /*Validators*/ } from '@angular/forms';
 
-import { FormComposer, FormField, ParsedData } from '../../interfaces';
+import { FormField, FormRow, ParsedData } from '../../interfaces';
 
 @Component({
   selector: 'bab-form',
@@ -10,18 +10,18 @@ import { FormComposer, FormField, ParsedData } from '../../interfaces';
 })
 export class ComposerComponent implements OnInit {
   @Input()
-  public form: FormComposer;
+  public rows: FormRow[];
 
   public formFields: FormField[];
+  public formRows: FormRow[];
   public formGroup: FormGroup;
-  public formSubmitText: string;
 
   constructor(private fb: FormBuilder) {}
 
   public ngOnInit(): void {
     if (this.isDataValid()) {
-      this.formSubmitText = this.form.submitText;
-      this.initForm(this.parseData(this.form));
+      this.formRows = [...this.rows];
+      this.initForm(this.parseData(this.formRows));
     }
   }
 
@@ -33,8 +33,8 @@ export class ComposerComponent implements OnInit {
     return true;
   }
 
-  private parseData(form: FormComposer): ParsedData {
-    this.formFields = form.rows.reduce((fields, current) => {
+  private parseData(rows: FormRow[]): ParsedData {
+    this.formFields = rows.reduce((fields, current) => {
       fields = [...fields, ...current.fields];
       return fields;
     }, []);

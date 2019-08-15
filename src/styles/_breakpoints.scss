@@ -1,0 +1,9 @@
+$smallDesktop: 1024;
+
+$mediaDesktop: "(min-width: #{$smallDesktop}px)";
+
+@mixin desktop {
+  @media #{$mediaDesktop} {
+    @content;
+  }
+}

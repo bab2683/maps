@@ -1,0 +1,15 @@
+@import "styles";
+
+$max-fields-per-row: 4;
+
+.row {
+  display: grid;
+  grid-gap: $base-spacing;
+
+  $i: 0;
+
+  @while $i <= $max-fields-per-row {
+    @include repeat-modifier("b", $i, "grid-template-columns", "repeat(#{$i}, 1fr)");
+    $i: + $i + 1;
+  }
+}
