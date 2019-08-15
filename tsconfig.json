@@ -20,7 +20,9 @@
     "paths": {
       "@cmp/*": ["./src/app/components/*"],
       "@env/*": ["./src/environments/*"],
-      "@mod/*": ["./src/models/*"]
+      "@int/*": ["./src/interfaces/*"],
+      "@mod/*": ["./src/app/modules/*"],
+      "@pag/*": ["./src/app/pages/*"]
     },
     "sourceMap": true,
     "target": "es2015",

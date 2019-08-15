@@ -3,11 +3,15 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HeaderComponent, InputComponent, LoginComponent } from '@cmp/index';
-import { environment } from '@env/environment';
+import { AuthModule, FormModule } from '@mod/index';
 import { AppRoutingModule } from './app-routing.module';
+
+import { environment } from '@env/environment';
+
+import { HomeComponent } from '@pag/index';
+
+import { HeaderComponent } from '@cmp/index';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
 
 const {
   firebase: {
@@ -21,7 +25,7 @@ const {
 } = environment;
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, HeaderComponent, InputComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent],
   imports: [
     AngularFireAuthModule,
     AngularFireModule.initializeApp({
@@ -33,7 +37,9 @@ const {
       messagingSenderId: FIREBASE_MAPS_MESSAGING_ID
     }),
     AppRoutingModule,
-    BrowserModule
+    AuthModule,
+    BrowserModule,
+    FormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
