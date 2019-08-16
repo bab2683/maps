@@ -24,7 +24,14 @@
       true,
       {
         "ignoreAtRules": [
-          "function", "if", "each", "extend","include", "mixin", "return", "while",
+          "debug",
+          "function",
+          "if",
+          "each",
+          "extend","include",
+          "mixin",
+          "return",
+          "while",
           "/each/",
           "/else/",
           "/if/",

@@ -1,12 +1,8 @@
 <form [formGroup]="formGroup" *ngIf="formGroup" (ngSubmit)="submit()">
   <form-row [data]="row" *ngFor="let row of formRows">
-    <form-field [data]="field" *ngFor="let field of row.fields">
-      <label [for]="name" *ngIf="field.label">{{ label }}</label>
-      <input
-        [formControlName]="field.name"
-        [attr.placeholder]="field.placeholder ? field.placeholder : null"
-        [type]="field.type"
-      />
-    </form-field>
+    <div class="field" *ngFor="let field of row.fields">
+      <input class="field__input" [formControlName]="field.name" [type]="field.type" />
+      <label class="field__label" [for]="field.name" *ngIf="field.label">{{ field.label }}</label>
+    </div>
   </form-row>
 </form>

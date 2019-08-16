@@ -10,7 +10,6 @@ export interface FormField {
   error?: string;
   label?: string;
   name: string;
-  placeholder?: string;
   type: string;
   validators?: any[];
 }
@@ -20,6 +19,10 @@ export interface FormRowSizes {
   [FormSizes.Medium]?: number;
   [FormSizes.Large]?: number;
   [FormSizes.ExtraLarge]?: number;
+}
+
+export interface FormResult {
+  [name: string]: any;
 }
 
 export interface ParsedData {

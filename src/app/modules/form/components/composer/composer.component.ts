@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, /*FormControl*/ FormGroup /*Validators*/ } from '@angular/forms';
 
-import { FormField, FormRow, ParsedData } from '../../interfaces';
+import { FormField, FormResult, FormRow, ParsedData } from '../../interfaces';
 
 @Component({
   selector: 'bab-form',
@@ -9,12 +9,12 @@ import { FormField, FormRow, ParsedData } from '../../interfaces';
   styleUrls: ['./composer.component.scss']
 })
 export class ComposerComponent implements OnInit {
-  @Input()
-  public rows: FormRow[];
-
   public formFields: FormField[];
   public formRows: FormRow[];
   public formGroup: FormGroup;
+
+  @Input()
+  public rows: FormRow[];
 
   constructor(private fb: FormBuilder) {}
 
@@ -25,8 +25,11 @@ export class ComposerComponent implements OnInit {
     }
   }
 
-  public submit(): void {
-    console.log('submited');
+  public submit(): FormResult | null {
+    if (this.formGroup.valid) {
+      return this.formGroup.value;
+    }
+    return null;
   }
 
   private isDataValid(): boolean {

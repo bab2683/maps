@@ -1,10 +1,16 @@
 # Maps
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1.
+## TODO
+- change tests to `jest`
+- create schematics to include `index.ts` file
+- start implementing unit tests
+- separate `auth` and `form` modules into their different projects
+- add native submit to `form` module
+- start implementing e2e tests 
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4300/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

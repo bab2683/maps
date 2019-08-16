@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'firebase/app';
+
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'auth-logged-in',
@@ -6,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logged-in.component.scss']
 })
 export class LoggedInComponent implements OnInit {
-  constructor() {}
+  @Input() user: User;
 
-  public ngOnInit(): void {}
+  constructor(private auth: AuthService) {}
+
+  public ngOnInit(): void {
+    console.log(this.user);
+  }
+
+  public logout(): void {
+    this.auth.logout();
+  }
 }

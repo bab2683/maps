@@ -5,5 +5,5 @@
 }
 
 @mixin transition($name, $duration: $base-transition-duration, $timing: $base-transition-timing) {
-  transition: #{$name} #{$duration}ms #{$timing};
+  transition: repeat-values(create-dynamic-list($name, #{$duration}ms #{$timing}));
 }

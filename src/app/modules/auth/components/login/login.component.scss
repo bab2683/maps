@@ -1,9 +1,6 @@
 @import "common";
 
-button {
-  margin-left: $base-spacing;
-}
-
-.form {
-  display: inline-block;
+:host {
+  align-items: center;
+  display: flex;
 }

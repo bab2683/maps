@@ -3,16 +3,17 @@
 }
 
 button {
-  background-color: $base-60;
+  background-color: $base-color-60;
   border: 0;
-  color: $base-20;
+  color: $base-color-20;
   display: inline-block;
-  padding: $base-spacing;
+
+  @extend .p--a;
 
   @include transition(background-color);
 
   &:hover {
-    background-color: $base-90;
+    background-color: $base-color-90;
   }
 
   @extend .rounded;

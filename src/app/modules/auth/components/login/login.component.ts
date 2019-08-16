@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmailValidator, Validators } from '@angular/forms';
 
-import { ComposerComponent, FormRow } from '@mod/form';
+import { ComposerComponent, FormResult, FormRow } from '@mod/form';
+import { AuthService } from '../../auth.service';
 
 @Component({
   selector: 'auth-login',
@@ -12,19 +13,19 @@ export class LoginComponent implements OnInit {
   @ViewChild('form', { static: false }) public form: ComposerComponent;
   rows: FormRow[];
 
-  constructor() {
+  constructor(private auth: AuthService) {
     this.rows = [
       {
         fields: [
           {
+            label: 'Your email',
             name: 'email',
-            placeholder: 'Your email',
             type: 'email',
             validators: [new EmailValidator(), Validators.required]
           },
           {
+            label: 'Your password',
             name: 'password',
-            placeholder: 'Your password',
             type: 'password',
             validators: [Validators.required]
           }
@@ -39,7 +40,9 @@ export class LoginComponent implements OnInit {
   public ngOnInit(): void {}
 
   public login(): void {
-    console.log('loggin in');
-    this.form.submit();
+    const result: FormResult | null = this.form.submit();
+    if (result) {
+      this.auth.login(result.email, result.password);
+    }
   }
 }

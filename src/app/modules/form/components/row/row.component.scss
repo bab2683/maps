@@ -1,10 +1,10 @@
-@import "styles";
+@import "common";
 
 $max-fields-per-row: 4;
 
 .row {
   display: grid;
-  grid-gap: $base-spacing;
+  grid-gap: px-to-rem($base-spacing);
 
   $i: 0;
 

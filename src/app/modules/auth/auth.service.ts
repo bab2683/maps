@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { User } from 'firebase/app';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +9,8 @@ import { switchMap } from 'rxjs/operators';
 export class AuthService {
   constructor(private afAuth: AngularFireAuth) {}
 
-  public isLoggedIn(): Observable<boolean> {
-    return this.afAuth.user.pipe(
-      switchMap(result => {
-        if (result) {
-          return of(true);
-        }
-        return of(false);
-      })
-    );
+  public getUser(): Observable<User | null> {
+    return this.afAuth.user;
   }
 
   public login(email: string, password: string): void {

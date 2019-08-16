@@ -2,9 +2,10 @@
 
 :host {
   align-items: center;
-  background-color: $base-50;
+  background-color: $base-color-50;
   color: $text-color;
   display: flex;
   justify-content: space-between;
-  padding: $base-spacing;
+
+  @extend .p--a;
 }

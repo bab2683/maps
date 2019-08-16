@@ -6,16 +6,55 @@ input {
   &[type="text"] {
     background: none;
     border: 0;
-    border-bottom: 2px solid $base-60;
+    border-bottom: 2px solid $base-color-60;
     display: inline-block;
-    padding: $base-spacing;
+    padding: px-to-rem(10) 0 px-to-rem(2) px-to-rem(2);
     width: 100%;
+
+    @extend .fz;
 
     @include transition(border-bottom-color);
 
     &:hover,
-    :focus {
-      border-bottom-color: $base-90;
+    &:focus {
+      border-bottom-color: $base-color-90;
+    }
+  }
+}
+
+$field-class: ".field";
+
+@mixin label-effect {
+  transform: translateY(-40%);
+
+  @extend .fz--small;
+}
+
+#{$field-class} {
+  position: relative;
+
+  &:hover {
+    #{$field-class}__label {
+      @include label-effect;
+    }
+  }
+
+  &__label {
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translateY(30%);
+    width: 100%;
+
+    @include transition((transform, font-size));
+  }
+
+  &__input {
+    position: relative;
+
+    &.ng-dirty:not(.ng-invalid) + #{$field-class}__label,
+    &:focus + #{$field-class}__label {
+      @include label-effect;
     }
   }
 }

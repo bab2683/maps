@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from 'firebase/app';
 import { Observable } from 'rxjs';
 
 import { AuthService } from '../../auth.service';
@@ -9,9 +10,9 @@ import { AuthService } from '../../auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  isLoggedin: Observable<boolean>;
+  user$: Observable<User | null>;
 
   constructor(private auth: AuthService) {
-    this.isLoggedin = this.auth.isLoggedIn();
+    this.user$ = this.auth.getUser();
   }
 }

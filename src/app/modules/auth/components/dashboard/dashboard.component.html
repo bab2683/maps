@@ -1,1 +1,6 @@
-<p>dashboard works!</p>
+<ng-container *ngIf="user$ | async as user; else showLogin">
+  <auth-logged-in [user]="user"></auth-logged-in>
+</ng-container>
+<ng-template #showLogin>
+  <auth-login></auth-login>
+</ng-template>
