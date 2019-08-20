@@ -1,1 +1,3 @@
-Welcome {{ user.email }} <button type="button" (click)="logout.emit()">Logout</button>
+<ng-container *ngIf="user">
+  Welcome {{ user.email }} <button type="button" (click)="logout.emit()">Logout</button>
+</ng-container>

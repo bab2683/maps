@@ -2,12 +2,12 @@
 
 ## TODO
 - ~~add ngrx~~
-- change tests to `jest`
-- create schematics to include `index.ts` file
-- start implementing unit tests
+- ~~change tests to `jest`~~
+- start implementing unit tests (in progress)
 - separate `auth` and `form` modules into their different projects
 - add native submit to `form` module
 - start implementing e2e tests
+- create schematics to include `index.ts` file
 
 ## Development server
 

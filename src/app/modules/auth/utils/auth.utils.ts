@@ -1,6 +1,6 @@
 import { FirebaseError, User } from 'firebase';
 
-import { AuthErrors } from '../auth.enums';
+import { AuthErrors } from '../auth.enum';
 import { AuthError, LoggedUser } from '../auth.model';
 
 export function parseLoginError({ code }: FirebaseError): AuthError {

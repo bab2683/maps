@@ -1,16 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoggedInComponent } from './logged-in.component';
+import { LoggedInComponent } from '../logged-in.component';
 
 describe('LoggedInComponent', () => {
   let component: LoggedInComponent;
   let fixture: ComponentFixture<LoggedInComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LoggedInComponent]
+      declarations: [LoggedInComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoggedInComponent);
@@ -20,5 +22,9 @@ describe('LoggedInComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should match snapshot', () => {
+    expect(fixture).toMatchSnapshot();
   });
 });

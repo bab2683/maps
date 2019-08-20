@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginComponent should match snapshot 1`] = `
+<auth-login
+  form={[Function ElementRef]}
+  loginData={[Function EventEmitter]}
+  rows={[Function Array]}
+>
+  <bab-form /><button
+    class="m--l"
+    type="button"
+  >
+    Continue
+  </button>
+</auth-login>
+`;

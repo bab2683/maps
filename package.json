@@ -5,9 +5,11 @@
     "ng": "ng",
     "start": "ng serve -o --port 4300",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test -u",
+    "test:coverage": "ng test --coverage --no-cache",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "precommit": "lint-staged && npm run test:coverage"
   },
   "private": true,
   "dependencies": {
@@ -31,29 +33,20 @@
   "devDependencies": {
     "@angular-builders/custom-webpack": "^8.1.0",
     "@angular-builders/dev-server": "^7.3.1",
+    "@angular-builders/jest": "^8.2.0",
     "@angular-devkit/build-angular": "^0.802.1",
     "@angular/cli": "~8.2.1",
     "@angular/compiler-cli": "~8.2.0",
     "@angular/language-service": "~8.2.0",
     "@ngrx/store-devtools": "^8.2.0",
-    "@types/jasmine": "~3.3.8",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/jest": "^24.0.17",
+    "@types/jest": "^24.0.18",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "husky": "^3.0.3",
-    "jasmine-core": "~3.4.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "jest-preset-angular": "^7.1.1",
-    "karma": "~4.1.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.0",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2",
-    "protractor": "~5.4.0",
     "rxjs-tslint-rules": "^4.24.3",
     "stylelint": "^10.1.0",
     "stylelint-order": "^3.0.1",
@@ -67,57 +60,6 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
-    }
-  },
-  "jest": {
-    "preset": "jest-preset-angular",
-    "testMatch": [
-      "**/__tests__/**/*.spec.ts"
-    ],
-    "globals": {
-      "ts-jest": {
-        "tsConfigFile": "src/common/tsconfig.spec.json"
-      },
-      "__TRANSFORM_HTML__": true
-    },
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/common/jest.ts"
-    ],
-    "coverageDirectory": "coverage",
-    "collectCoverageFrom": [
-      "src/**/*.ts",
-      "!src/**/*.animations.ts",
-      "!src/**/*.config.ts",
-      "!src/**/*.constants.ts",
-      "!src/**/*.enum.ts",
-      "!src/**/*.map.ts",
-      "!src/**/*.mocks.ts",
-      "!src/**/*.model.ts",
-      "!src/**/*.module.ts",
-      "!src/**/*.routes.ts",
-      "!src/**/index.ts",
-      "!src/**/main.ts",
-      "!src/environments/**",
-      "!**/node_modules/**"
-    ],
-    "coverageReporters": [
-      "text",
-      "html"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 70,
-        "functions": 80,
-        "lines": 80,
-        "statements": 80
-      }
-    },
-    "moduleDirectories": [
-      "node_modules",
-      "node_modules/@types"
-    ],
-    "moduleNameMapper": {
-      "@environments/(.*)": "<rootDir>/src/environments/$1"
     }
   },
   "lint-staged": {

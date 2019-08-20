@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderComponent should match snapshot 1`] = `
+<app-header>
+  <a
+    class="bracket-effect"
+    routerlink="/"
+  >
+    Home
+  </a><auth-dashboard />
+</app-header>
+`;

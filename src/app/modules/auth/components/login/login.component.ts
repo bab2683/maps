@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { EmailValidator, Validators } from '@angular/forms';
 
 import { ComposerComponent, FormResult, FormRow } from '@mod/form';
@@ -9,7 +9,7 @@ import { AuthLoginMail } from '../../auth.model';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   @ViewChild('form', { static: false }) public form: ComposerComponent;
   rows: FormRow[];
 
@@ -38,8 +38,6 @@ export class LoginComponent implements OnInit {
       }
     ];
   }
-
-  public ngOnInit(): void {}
 
   public emailAndPasswordLogin(): void {
     const result: FormResult | null = this.form.submit();
