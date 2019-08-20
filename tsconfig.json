@@ -22,7 +22,9 @@
       "@env/*": ["./src/environments/*"],
       "@int/*": ["./src/interfaces/*"],
       "@mod/*": ["./src/app/modules/*"],
-      "@pag/*": ["./src/app/pages/*"]
+      "@pag/*": ["./src/app/pages/*"],
+      "@str/*": ["./src/app/store/*"],
+      "@utl/*": ["./src/utils/*"]
     },
     "sourceMap": true,
     "target": "es2015",

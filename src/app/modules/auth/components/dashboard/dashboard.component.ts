@@ -1,18 +1,36 @@
-import { Component } from '@angular/core';
-import { User } from 'firebase/app';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { AuthService } from '../../auth.service';
+import { AuthLoginMail, LoggedUser } from '../../auth.model';
+import {
+  AuthInitCheck,
+  AuthLoginRequest,
+  AuthLogoutRequest,
+  AuthState,
+  getLoggedUser
+} from '../../store';
 
 @Component({
   selector: 'auth-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  user$: Observable<User | null>;
+export class DashboardComponent implements OnInit {
+  user$: Observable<LoggedUser | null>;
 
-  constructor(private auth: AuthService) {
-    this.user$ = this.auth.getUser();
+  constructor(private store: Store<AuthState>) {}
+
+  public ngOnInit(): void {
+    this.store.dispatch(new AuthInitCheck());
+    this.user$ = this.store.select(getLoggedUser);
+  }
+
+  public login(data: AuthLoginMail): void {
+    this.store.dispatch(new AuthLoginRequest(data));
+  }
+
+  public logout(): void {
+    this.store.dispatch(new AuthLogoutRequest());
   }
 }

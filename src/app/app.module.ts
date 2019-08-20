@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AuthModule, FormModule } from '@mod/index';
-import { AppRoutingModule } from './app-routing.module';
-
-import { environment } from '@env/environment';
-
-import { HomeComponent } from '@pag/index';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { HeaderComponent } from '@cmp/index';
+import { environment } from '@env/environment';
+import { AppRoutingModule, AuthModule, FormModule } from '@mod/index';
+import { HomeComponent } from '@pag/index';
+import { AllEffects, appReducers } from '@str/index';
 import { AppComponent } from './app.component';
 
 const {
@@ -39,7 +40,16 @@ const {
     AppRoutingModule,
     AuthModule,
     BrowserModule,
-    FormModule
+    EffectsModule.forRoot(AllEffects),
+    FormModule,
+    StoreModule.forRoot(appReducers, {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

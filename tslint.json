@@ -22,7 +22,7 @@
     "interface-name": false,
     "import-destructuring-spacing": true,
     "max-classes-per-file": false,
-    "max-line-length": [true, 140],
+    "max-line-length": [true, 100],
     "member-access": false,
     "member-ordering": [
       true,

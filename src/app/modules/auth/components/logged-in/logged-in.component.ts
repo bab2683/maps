@@ -1,23 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { User } from 'firebase/app';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { AuthService } from '../../auth.service';
+import { LoggedUser } from '../../auth.model';
 
 @Component({
   selector: 'auth-logged-in',
   templateUrl: './logged-in.component.html',
   styleUrls: ['./logged-in.component.scss']
 })
-export class LoggedInComponent implements OnInit {
-  @Input() user: User;
+export class LoggedInComponent {
+  @Input() public user: LoggedUser;
 
-  constructor(private auth: AuthService) {}
-
-  public ngOnInit(): void {
-    console.log(this.user);
-  }
-
-  public logout(): void {
-    this.auth.logout();
-  }
+  @Output() public logout: EventEmitter<void> = new EventEmitter();
 }
