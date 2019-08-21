@@ -1,3 +1,3 @@
-export enum AuthErrors {
+export enum AuthErrorsEnum {
   WRONG_PASSWORD = 'auth/wrong-password'
 }

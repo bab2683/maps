@@ -24,11 +24,13 @@
       "@mod/*": ["./src/app/modules/*"],
       "@pag/*": ["./src/app/pages/*"],
       "@str/*": ["./src/app/store/*"],
+      "@tst/*": ["./test_helpers/*"],
       "@utl/*": ["./src/utils/*"]
     },
     "sourceMap": true,
     "target": "es2015",
     "types": ["jest"],
     "typeRoots": ["node_modules/@types"]
-  }
+  },
+  "exclude": ["node_modules"]
 }

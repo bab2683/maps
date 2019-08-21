@@ -11,17 +11,17 @@ export function authReducer(state: AuthState = initialAuthState, action: AuthAct
       };
     }
 
-    case AuthActionTypes.LOGIN_ERROR: {
-      return {
-        ...state,
-        error: action.payload
-      };
-    }
-
     case AuthActionTypes.LOGIN_SUCCESS: {
       return {
         ...state,
         user: action.payload
+      };
+    }
+
+    case AuthActionTypes.LOGIN_ERROR: {
+      return {
+        ...state,
+        error: action.payload
       };
     }
 

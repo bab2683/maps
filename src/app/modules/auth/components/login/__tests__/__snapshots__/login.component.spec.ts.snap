@@ -2,11 +2,65 @@
 
 exports[`LoginComponent should match snapshot 1`] = `
 <auth-login
-  form={[Function ElementRef]}
+  form={[Function ComposerComponent]}
   loginData={[Function EventEmitter]}
   rows={[Function Array]}
 >
-  <bab-form /><button
+  <bab-form
+    ng-reflect-rows="[object Object]"
+  >
+    
+    <form
+      class="ng-untouched ng-pristine ng-invalid"
+      ng-reflect-form="[object Object]"
+      novalidate=""
+    >
+      
+      <form-row
+        ng-reflect-data="[object Object]"
+      >
+        <div
+          class="row row--b2"
+          ng-reflect-klass="row"
+          ng-reflect-ng-class="row--b2"
+        >
+          
+          <div
+            class="field"
+          >
+            <input
+              class="field__input ng-untouched ng-pristine ng-invalid"
+              ng-reflect-name="email"
+              type="email"
+            />
+            
+            <label
+              class="field__label"
+              for="email"
+            >
+              Your email
+            </label>
+          </div>
+          <div
+            class="field"
+          >
+            <input
+              class="field__input ng-untouched ng-pristine ng-invalid"
+              ng-reflect-name="password"
+              type="password"
+            />
+            
+            <label
+              class="field__label"
+              for="password"
+            >
+              Your password
+            </label>
+          </div>
+        </div>
+      </form-row>
+    </form>
+  </bab-form><button
     class="m--l"
     type="button"
   >

@@ -15,6 +15,9 @@ module.exports = config => {
       ENV_VARS: env
     })
   );
-  config.resolve.alias['@mod'] = path.resolve(__dirname, 'src/app/modules/');
+
+  config.resolve.alias['@mod'] = path.join(__dirname, 'src/app/modules');
+  config.resolve.alias['@tst'] = path.join(__dirname, 'test_helpers');
+
   return config;
 };

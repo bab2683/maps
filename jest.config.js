@@ -11,6 +11,7 @@ module.exports = {
     '!src/**/*.model.ts',
     '!src/**/*.module.ts',
     '!src/**/*.routes.ts',
+    '!src/**/*.actions.ts',
     '!src/**/index.ts',
     '!src/**/main.ts',
     '!src/environments/**',
@@ -34,10 +35,11 @@ module.exports = {
       tsConfig: './tsconfig.spec.json'
     }
   },
-  moduleDirectories: ['.', 'src', 'node_modules'],
+  moduleDirectories: ['.', 'node_modules'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   moduleNameMapper: {
-    '@mod/(.*)': '<rootDir>/src/app/modules/$1'
+    '@mod/(.*)': '<rootDir>/src/app/modules/$1',
+    '@tst/(.*)': '<rootDir>/test_helpers/$1'
   },
   setupFilesAfterEnv: ['<rootDir>/node_modules/@angular-builders/jest/dist/jest-config/setup.js'],
   snapshotSerializers: [

@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { FirebaseError } from 'firebase';
 import { from, Observable, of } from 'rxjs';
-import { catchError, first, switchMap } from 'rxjs/operators';
+import { catchError, first, mapTo, switchMap, map } from 'rxjs/operators';
 
 import { getRelevantUserData, parseLoginError } from '../utils';
 import {
@@ -50,9 +50,8 @@ export class AuthEffects {
   @Effect()
   public logoutRequest$: Observable<AuthLogoutSuccess> = this.actions$.pipe(
     ofType<AuthLogoutRequest>(AuthActionTypes.LOGOUT_REQUEST),
-    switchMap(() =>
-      from(this.afAuth.auth.signOut()).pipe(switchMap(() => of(new AuthLogoutSuccess())))
-    )
+    map(() => from(this.afAuth.auth.signOut())),
+    mapTo(new AuthLogoutSuccess())
   );
 
   constructor(private actions$: Actions, private afAuth: AngularFireAuth) {}

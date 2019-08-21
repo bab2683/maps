@@ -1,11 +1,11 @@
 import { FirebaseError, User } from 'firebase';
 
-import { AuthErrors } from '../auth.enum';
+import { AuthErrorsEnum } from '../auth.enum';
 import { AuthError, LoggedUser } from '../auth.model';
 
 export function parseLoginError({ code }: FirebaseError): AuthError {
   switch (code) {
-    case AuthErrors.WRONG_PASSWORD:
+    case AuthErrorsEnum.WRONG_PASSWORD:
       return {
         message: 'wrong credentials'
       };

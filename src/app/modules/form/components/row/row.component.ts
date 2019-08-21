@@ -8,16 +8,15 @@ import { FormRow } from '../../interfaces';
   styleUrls: ['./row.component.scss']
 })
 export class RowComponent implements OnInit {
-  @Input() data: FormRow;
-  constructor() {}
+  @Input() public data: FormRow;
 
-  classes: string[];
+  public classes: string[];
 
   public ngOnInit(): void {
     this.classes = this.createClasses(this.data);
   }
 
-  public createClasses(data: FormRow): string[] {
+  private createClasses(data: FormRow): string[] {
     const { fields, sizes } = data;
     if (sizes) {
       return Object.entries(sizes).reduce((result, current) => {

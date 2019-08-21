@@ -53,6 +53,5 @@ export class ComposerComponent implements OnInit {
 
   private initForm(parsedData: ParsedData): void {
     this.formGroup = this.fb.group(parsedData);
-    console.log(this.formGroup);
   }
 }

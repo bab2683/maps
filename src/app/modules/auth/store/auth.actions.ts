@@ -10,7 +10,8 @@ export enum AuthActionTypes {
   LOGIN_SUCCESS = '[Auth] login success',
   LOGIN_ERROR = '[Auth] login fail',
   LOGOUT_REQUEST = '[Auth] logout request',
-  LOGOUT_SUCCESS = '[Auth] logout success'
+  LOGOUT_SUCCESS = '[Auth] logout success',
+  LOGOUT_ERROR = '[Auth] logout error'
 }
 
 export class AuthInitCheck implements Action {
@@ -55,6 +56,12 @@ export class AuthLogoutSuccess implements Action {
   constructor(public payload?: any) {}
 }
 
+export class AuthLogoutFail implements Action {
+  public readonly type = AuthActionTypes.LOGOUT_ERROR;
+
+  constructor(public payload: AuthError) {}
+}
+
 export type AuthActions =
   | AuthInitCheck
   | AuthLoginRequest
@@ -62,4 +69,5 @@ export type AuthActions =
   | AuthLoginFail
   | AuthLoginSuccess
   | AuthLogoutRequest
-  | AuthLogoutSuccess;
+  | AuthLogoutSuccess
+  | AuthLogoutFail;

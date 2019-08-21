@@ -6,10 +6,10 @@
     "start": "ng serve -o --port 4300",
     "build": "ng build",
     "test": "ng test -u",
-    "test:coverage": "ng test --coverage --no-cache",
+    "test:cov": "ng test --coverage --no-cache",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "precommit": "lint-staged && npm run test:coverage"
+    "precommit": "lint-staged && npm run test:cov"
   },
   "private": true,
   "dependencies": {

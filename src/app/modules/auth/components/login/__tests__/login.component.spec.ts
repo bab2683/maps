@@ -40,5 +40,11 @@ describe('LoginComponent', () => {
       component.emailAndPasswordLogin();
       expect(loginDataSpy).toBeCalledWith(result);
     });
+    it('should not emit any values if form is not valid', () => {
+      const result: any = null;
+      jest.spyOn(component.form, 'submit').mockReturnValue(result);
+      component.emailAndPasswordLogin();
+      expect(loginDataSpy).not.toHaveBeenCalled();
+    });
   });
 });
