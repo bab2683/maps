@@ -1,35 +1,28 @@
 import { async, TestBed } from '@angular/core/testing';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { provideMockActions } from '@ngrx/effects/testing';
-import { ReplaySubject, of } from 'rxjs';
+import { of, ReplaySubject } from 'rxjs';
 
 import {
-  genericTestError,
+  angularFireMock,
   loggedTestUser,
   testUserCredentials,
   wrongCredentialsTestError
 } from '@tst/mock';
 
 import { AuthErrorsEnum } from '../../auth.enum';
-import { AuthEffects } from '../auth.effects';
 import {
+  AuthActionTypes,
   AuthInitCheck,
   AuthLoginRequest,
-  AuthLogoutRequest,
-  AuthActionTypes
+  AuthLogoutFail,
+  AuthLogoutRequest
 } from '../auth.actions';
+import { AuthEffects } from '../auth.effects';
 
 describe('AuthEffects', () => {
   let effects: AuthEffects;
   let actions: ReplaySubject<any>;
-
-  let angularFireMock: any = {
-    auth: {
-      signInWithEmailAndPassword: jest.fn(),
-      signOut: jest.fn()
-    },
-    user: of(null)
-  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -51,8 +44,10 @@ describe('AuthEffects', () => {
   });
 
   describe('#initAuth$', () => {
-    it('should dispatch AuthLoadedAction', async(async () => {
+    it('should dispatch AuthLoadedAction with null if no data is present', async(async () => {
       actions = new ReplaySubject(1);
+
+      angularFireMock.user.setSource(of(null));
 
       actions.next(new AuthInitCheck());
       effects.initAuth$.subscribe(result => {
@@ -60,10 +55,23 @@ describe('AuthEffects', () => {
         expect(result.type).toEqual(AuthActionTypes.LOADED);
       });
     }));
+
+    it('should dispatch AuthLoadedAction with data if present', async(async () => {
+      actions = new ReplaySubject(1);
+
+      angularFireMock.user.setSource(of(loggedTestUser));
+      actions.next(new AuthInitCheck());
+      effects.initAuth$.subscribe(result => {
+        expect(result.payload).toEqual(loggedTestUser);
+        expect(result.type).toEqual(AuthActionTypes.LOADED);
+      });
+    }));
   });
 
   describe('#loginRequest$', () => {
+    // tslint:disable:max-line-length
     it('#loginRequest$ should dispatch AuthLoadedAction if credentials are correct', async(async () => {
+      // tslint:enable:max-line-length
       actions = new ReplaySubject(1);
 
       jest.spyOn(angularFireMock.auth, 'signInWithEmailAndPassword').mockReturnValue(
@@ -105,23 +113,26 @@ describe('AuthEffects', () => {
       );
 
       actions.next(new AuthLogoutRequest());
-      effects.initAuth$.subscribe(result => {
+      effects.logoutRequest$.subscribe(result => {
         expect(result.type).toEqual(AuthActionTypes.LOGOUT_SUCCESS);
       });
     }));
 
-    it('should dispatch AuthLogoutSuccess', async(async () => {
+    it('should dispatch AuthLogoutFail on http error', async(async () => {
       actions = new ReplaySubject(1);
 
+      const error: string = 'Http error 500';
+
       jest.spyOn(angularFireMock.auth, 'signOut').mockReturnValue(
-        new Promise(resolve => {
-          resolve();
+        new Promise((_, reject) => {
+          reject({ error });
         })
       );
 
       actions.next(new AuthLogoutRequest());
-      effects.initAuth$.subscribe(result => {
-        expect(result.type).toEqual(AuthActionTypes.LOGOUT_SUCCESS);
+      effects.logoutRequest$.subscribe(result => {
+        expect(result.type).toEqual(AuthActionTypes.LOGOUT_ERROR);
+        expect<AuthLogoutFail>(result.payload);
       });
     }));
   });

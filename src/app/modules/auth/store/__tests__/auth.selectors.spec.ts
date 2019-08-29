@@ -15,7 +15,6 @@ describe('AuthState Selectors', () => {
     TestBed.configureTestingModule({
       imports: [StoreModule.forRoot({ auth: authReducer })]
     });
-
     store = TestBed.get(Store);
 
     spyOn(store, 'dispatch').and.callThrough();
