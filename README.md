@@ -4,8 +4,11 @@
 - ~~add ngrx~~
 - ~~change tests to `jest`~~
 - ~~start implementing unit tests~~
-- separate `auth` and `form` modules into their different projects
+- ~~separate `auth` and `form` modules into their different projects~~
+- create style library
+- create builder to build style library
 - add native submit to `form` module
+- save configuration and make it public, then import it
 - start implementing e2e tests
 - create schematics to include `index.ts` file
 
