@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RowComponent should match snapshot 1`] = `
+<form-row>
+  <div
+    class="row"
+  />
+</form-row>
+`;

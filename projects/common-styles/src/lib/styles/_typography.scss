@@ -1,0 +1,7 @@
+.fz {
+  font-size: px-to-rem($base-fz);
+
+  &--small {
+    font-size: px-to-rem($base-fz - 6);
+  }
+}

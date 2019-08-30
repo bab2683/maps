@@ -1,0 +1,8 @@
+<form [formGroup]="formGroup" *ngIf="formGroup" (ngSubmit)="submit()">
+  <bab-form-row [data]="row" *ngFor="let row of formRows">
+    <div class="field" *ngFor="let field of row.fields">
+      <input class="field__input" [formControlName]="field.name" [type]="field.type" />
+      <label class="field__label" [for]="field.name" *ngIf="field.label">{{ field.label }}</label>
+    </div>
+  </bab-form-row>
+</form>

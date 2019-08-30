@@ -4,7 +4,7 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { /*MockStore*/ provideMockStore } from '@ngrx/store/testing';
 import { ReplaySubject } from 'rxjs';
 
-import { AuthLoadedAction, getAuthLoadingState } from '@mod/auth';
+import { AuthLoadedAction, getAuthLoadingState } from '@bab/auth';
 import { AppActionTypes } from '../app.actions';
 import { AppEffects } from '../app.effects';
 

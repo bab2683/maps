@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { AuthLoginMail, LoggedUser } from '../../auth.model';
 import {
   AuthInitCheck,
+  AuthLoginMail,
   AuthLoginRequest,
   AuthLogoutRequest,
   AuthState,
-  getLoggedUser
-} from '../../store';
+  getLoggedUser,
+  LoggedUser
+} from '@bab/auth';
 
 @Component({
   selector: 'auth-dashboard',

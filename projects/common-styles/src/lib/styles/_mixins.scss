@@ -1,0 +1,9 @@
+@mixin repeat-modifier($name, $index, $prop, $value) {
+  &--#{$name}#{$index} {
+    #{$prop}: #{$value};
+  }
+}
+
+@mixin transition($name, $duration: $base-transition-duration, $timing: $base-transition-timing) {
+  transition: repeat-values(create-dynamic-list($name, #{$duration}ms #{$timing}));
+}

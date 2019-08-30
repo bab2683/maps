@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { LoggedUser } from '../../auth.model';
+import { LoggedUser } from '@bab/auth';
 
 @Component({
   selector: 'auth-logged-in',

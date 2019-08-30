@@ -17,7 +17,7 @@ module.exports = config => {
   );
 
   config.resolve.alias['@mod'] = path.join(__dirname, 'src/app/modules');
-  config.resolve.alias['@tst'] = path.join(__dirname, 'test_helpers');
+  config.resolve.alias['@bab'] = path.join(__dirname, 'dist/@bab');
 
   return config;
 };

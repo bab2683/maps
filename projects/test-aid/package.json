@@ -1,0 +1,8 @@
+{
+  "name": "test-aid",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "jest": "*",
+    "rxjs": "*"
+  }
+}

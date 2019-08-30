@@ -1,13 +1,14 @@
 module.exports = {
   collectCoverageFrom: [
     'src/app/**/*.ts',
+    'projects/**/*.ts',
     '!src/polyfills.ts',
     '!src/**/*.animations.ts',
     '!src/**/*.config.ts',
     '!src/**/*.constants.ts',
     '!src/**/*.enum.ts',
     '!src/**/*.map.ts',
-    '!src/**/*.mocks.ts',
+    '!src/**/*.mock.ts',
     '!src/**/*.model.ts',
     '!src/**/*.module.ts',
     '!src/**/*.routes.ts',
@@ -16,6 +17,21 @@ module.exports = {
     '!src/**/index.ts',
     '!src/**/main.ts',
     '!src/environments/**',
+    '!projects/polyfills.ts',
+    '!projects/**/*.animations.ts',
+    '!projects/**/*.config.ts',
+    '!projects/**/*.constants.ts',
+    '!projects/**/*.enum.ts',
+    '!projects/**/*.map.ts',
+    '!projects/**/*.mock.ts',
+    '!projects/**/*.model.ts',
+    '!projects/**/*.module.ts',
+    '!projects/**/*.routes.ts',
+    '!projects/**/*.actions.ts',
+    '!projects/**/*.state.ts',
+    '!projects/**/index.ts',
+    '!projects/**/main.ts',
+    '!projects/**/public-api.ts',
     '!**/node_modules/**'
   ],
   coverageThreshold: {
@@ -40,7 +56,8 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   moduleNameMapper: {
     '@mod/(.*)': '<rootDir>/src/app/modules/$1',
-    '@tst/(.*)': '<rootDir>/test_helpers/$1'
+    '@tst/(.*)': '<rootDir>/test_helpers/$1',
+    '@bab/(.*)': '<rootDir>/dist/@bab/$1'
   },
   setupFilesAfterEnv: ['<rootDir>/node_modules/@angular-builders/jest/dist/jest-config/setup.js'],
   snapshotSerializers: [

@@ -25,11 +25,12 @@
       "@pag/*": ["./src/app/pages/*"],
       "@str/*": ["./src/app/store/*"],
       "@tst/*": ["./test_helpers/*"],
-      "@utl/*": ["./src/utils/*"]
+      "@utl/*": ["./src/utils/*"],
+      "@bab/*": ["dist/@bab/*"]
     },
     "sourceMap": true,
     "target": "es2015",
-    "types": ["jest"],
+    "types": ["node", "jest"],
     "typeRoots": ["node_modules/@types"]
   },
   "exclude": ["node_modules"]

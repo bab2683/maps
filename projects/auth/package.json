@@ -1,0 +1,11 @@
+{
+  "name": "auth",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "*",
+    "@angular/core": "*",
+    "@angular/fire": "*",
+    "@ngrx/effects": "*",
+    "@ngrx/store": "*"
+  }
+}

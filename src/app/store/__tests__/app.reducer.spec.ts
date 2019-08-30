@@ -1,4 +1,4 @@
-import { provide } from '@tst/utils';
+import { provide } from '@bab/test-aid';
 
 import { AppLoadedAction } from '../app.actions';
 import { appReducer } from '../app.reducer';

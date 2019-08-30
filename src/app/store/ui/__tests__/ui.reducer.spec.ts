@@ -1,4 +1,4 @@
-import { provide } from '@tst/utils';
+import { provide } from '@bab/test-aid';
 
 import { UiLoadedAction } from '../ui.actions';
 import { uiReducer } from '../ui.reducer';

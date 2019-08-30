@@ -4,13 +4,13 @@ import { Store } from '@ngrx/store';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 import {
-  AuthState,
   AuthInitCheck,
   AuthLoginRequest,
   AuthLogoutRequest,
+  AuthState,
   getLoggedUser,
   initialAuthState
-} from '../../../store';
+} from '@bab/auth';
 
 import { DashboardComponent } from '../dashboard.component';
 

@@ -3,7 +3,7 @@
 ## TODO
 - ~~add ngrx~~
 - ~~change tests to `jest`~~
-- start implementing unit tests (in progress)
+- ~~start implementing unit tests~~
 - separate `auth` and `form` modules into their different projects
 - add native submit to `form` module
 - start implementing e2e tests

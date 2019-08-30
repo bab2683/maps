@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { EmailValidator, Validators } from '@angular/forms';
+import { AuthLoginMail } from '@bab/auth';
 
 import { ComposerComponent, FormResult, FormRow } from '@mod/form';
-import { AuthLoginMail } from '../../auth.model';
 
 @Component({
   selector: 'auth-login',

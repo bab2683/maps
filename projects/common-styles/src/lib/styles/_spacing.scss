@@ -1,0 +1,23 @@
+.p {
+  // Small
+  &__s {
+    &--a {
+      padding: px-to-rem($base-spacing - 2);
+    }
+  }
+
+  // Base
+  &--a {
+    padding: px-to-rem($base-spacing);
+  }
+
+  &--0l {
+    padding-left: 0;
+  }
+}
+
+.m {
+  &--l {
+    margin-left: px-to-rem($base-spacing);
+  }
+}

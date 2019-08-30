@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, mapTo, withLatestFrom } from 'rxjs/operators';
 
-import { AuthActionTypes, AuthLoadedAction, getAuthLoadingState } from '@mod/auth';
+import { AuthActionTypes, AuthLoadedAction, getAuthLoadingState } from '@bab/auth';
 import { AppLoadedAction } from './app.actions';
 import { AppState } from './app.state';
 import { UiEffects } from './ui';
