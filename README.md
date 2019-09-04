@@ -5,6 +5,8 @@
 - ~~change tests to `jest`~~
 - ~~start implementing unit tests~~
 - ~~separate `auth` and `form` modules into their different projects~~
+- add angular universal
+- add analytics
 - create style library
 - create builder to build style library
 - add native submit to `form` module
